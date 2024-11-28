@@ -8,10 +8,6 @@ class CommentArea extends Component {
   }
 
   getReviews = () => {
-    console.log(
-      'https://striveschool-api.herokuapp.com/api/comments/' +
-        this.props.selectedBook
-    )
     fetch(
       'https://striveschool-api.herokuapp.com/api/comments/' +
         this.props.selectedBook,

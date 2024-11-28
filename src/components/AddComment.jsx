@@ -13,19 +13,15 @@ class CommentList extends Component {
   submitReview = (e) => {
     e.preventDefault()
     console.log(this.props.bookId)
-    fetch(
-      'https://striveschool-api.herokuapp.com/api/comments/' +
-        this.props.bookId,
-      {
-        method: 'POST',
-        body: JSON.stringify(this.state.review),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ4OGQxYTA2ZmM4YzAwMTU2Yjg3OGEiLCJpYXQiOjE3MzI4MzI3ODAsImV4cCI6MTczNDA0MjM4MH0.FlxAciUbNj75psIfuknKjCMI6Zc5EbJOT_szjma-isY',
-        },
-      }
-    )
+    fetch('https://striveschool-api.herokuapp.com/api/comments/', {
+      method: 'POST',
+      body: JSON.stringify(this.state.review),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ4OGQxYTA2ZmM4YzAwMTU2Yjg3OGEiLCJpYXQiOjE3MzI4MzI3ODAsImV4cCI6MTczNDA0MjM4MH0.FlxAciUbNj75psIfuknKjCMI6Zc5EbJOT_szjma-isY',
+      },
+    })
       .then((response) => {
         if (response.ok) {
           console.log('Review caricata')
