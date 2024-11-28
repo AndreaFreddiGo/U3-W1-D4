@@ -8,13 +8,17 @@ class CommentArea extends Component {
   }
 
   getReviews = () => {
+    console.log(
+      'https://striveschool-api.herokuapp.com/api/comments/' +
+        this.props.selectedBook
+    )
     fetch(
       'https://striveschool-api.herokuapp.com/api/comments/' +
         this.props.selectedBook,
       {
         headers: {
           Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ4OGQxYTA2ZmM4YzAwMTU2Yjg3OGEiLCJpYXQiOjE3MzI4MDc5NjIsImV4cCI6MTczNDAxNzU2Mn0.MRbxUHRZi1aSWV_q9m--e8pMC73RqEYGF-oKPfHn0TI',
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ4OGQxYTA2ZmM4YzAwMTU2Yjg3OGEiLCJpYXQiOjE3MzI4MzI3ODAsImV4cCI6MTczNDA0MjM4MH0.FlxAciUbNj75psIfuknKjCMI6Zc5EbJOT_szjma-isY',
         },
       }
     )
@@ -42,7 +46,7 @@ class CommentArea extends Component {
     return (
       <div>
         <CommentList array={this.state.reviews} />
-        <AddComment />
+        <AddComment bookId={this.props.selectedBook} />
       </div>
     )
   }

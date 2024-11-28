@@ -16,6 +16,7 @@ class SingleBook extends Component {
         <Col xs={12} md={4} lg={3}>
           <Card
             onClick={() => {
+              console.log(this.props.book)
               this.setState({ selected: !this.state.selected })
             }}
             className={`h-100 border-3 p-2 d-flex flex-column ${

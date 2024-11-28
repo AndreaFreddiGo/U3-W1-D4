@@ -7,7 +7,13 @@ class CommentList extends Component {
     return (
       <ListGroup>
         {this.props.array.map((element) => {
-          return <SingleComment book={element} key={element._id} />
+          return (
+            <SingleComment
+              review={element}
+              key={element._id}
+              array={this.props.array}
+            />
+          )
         })}
       </ListGroup>
     )
