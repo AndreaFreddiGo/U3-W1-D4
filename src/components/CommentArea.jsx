@@ -7,13 +7,17 @@ class CommentArea extends Component {
     reviews: [],
   }
 
-  getsReviews = () => {
-    fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props, {
-      headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ4OGQxYTA2ZmM4YzAwMTU2Yjg3OGEiLCJpYXQiOjE3MzI4MDc5NjIsImV4cCI6MTczNDAxNzU2Mn0.MRbxUHRZi1aSWV_q9m--e8pMC73RqEYGF-oKPfHn0TI',
-      },
-    })
+  getReviews = () => {
+    fetch(
+      'https://striveschool-api.herokuapp.com/api/comments/' +
+        this.props.selectedBook,
+      {
+        headers: {
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzQ4OGQxYTA2ZmM4YzAwMTU2Yjg3OGEiLCJpYXQiOjE3MzI4MDc5NjIsImV4cCI6MTczNDAxNzU2Mn0.MRbxUHRZi1aSWV_q9m--e8pMC73RqEYGF-oKPfHn0TI',
+        },
+      }
+    )
       .then((response) => {
         if (response.ok) {
           return response.json()
@@ -36,10 +40,10 @@ class CommentArea extends Component {
 
   render() {
     return (
-      <>
-        <CommentList array={reviews} />
+      <div>
+        <CommentList array={this.state.reviews} />
         <AddComment />
-      </>
+      </div>
     )
   }
 }

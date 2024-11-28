@@ -6,7 +6,7 @@ import Welcome from './components/Welcome'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import BookList from './components/BookList'
-import horror from './data/horror.json'
+import fantasy from './data/fantasy.json'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <main className="bg-warning p-3">
         <Container>
           <Row className="g-3">
-            <BookList genre={horror} />
+            <BookList genre={fantasy} />
           </Row>
         </Container>
       </main>

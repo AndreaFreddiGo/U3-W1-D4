@@ -1,11 +1,14 @@
 import { Component } from 'react'
+import SingleComment from './SingleComment'
 import { ListGroup } from 'react-bootstrap'
 
 class CommentList extends Component {
   render() {
     return (
-      <ListGroup className="border border-3 border-danger">
-        <ListGroup.Item></ListGroup.Item>
+      <ListGroup>
+        {this.props.array.map((element) => {
+          return <SingleComment book={element} key={element._id} />
+        })}
       </ListGroup>
     )
   }
